@@ -13,7 +13,7 @@
         <!-- Bootstrap core CSS -->
         <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
 
-        <link href="{{asset('fonts/css/font-awesome.min.css')}}" rel="stylesheet">
+        <link href="{{asset('css/font-awesome.min.css')}}" rel="stylesheet">
         <!--<link href="{{asset('css/animate.min.css')}}" rel="stylesheet">-->
 
         <!-- Custom styling plus plugins -->
@@ -94,11 +94,7 @@
                         </div>
                         <!-- /sidebar menu -->
 
-                        <!-- /menu footer buttons -->
-                        <div class="sidebar-footer hidden-small">
 
-                        </div>
-                        <!-- /menu footer buttons -->
                     </div>
                 </div>
 
@@ -146,9 +142,34 @@
                 <!-- /top navigation -->
 
 
-                <!-- page content -->
-                @yield('content')
+                <!-- page content -->                
+                <div class="right_col" role="main">
+                    <div class="">        
+                        <div class="clearfix"></div>
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <div class="x_panel">
+                                    <div class="x_title">
+                                        @yield('content')                   
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- footer content -->
+                    <footer>
+                        <div class="copyright-info">
+                            <p class="pull-right">&copy;{{date('Y')}} - Todos os direitos reservados - <a href="http://www.kontabb.com.br">kontabb - Contabilidade Borges</a>
+                            </p>
+                        </div>
+                        <div class="clearfix"></div>
+                    </footer>
+                    <!-- /footer content -->
+                </div>
                 <!-- /page content -->
+
+
 
             </div>
 
@@ -162,28 +183,39 @@
             <div id="notif-group" class="tabbed_notifications"></div>
         </div>
 
+        <!-- Modal Exclusão -->
+        <div class="modal fade" id="ModalExclusao" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Confirmação de Exclusão</h4>
+                    </div>
+                    <div class="modal-body">
+                        Deseja realmente realizar a exclusão? <br>
+                        Esta operação não poderá ser desfeita.
+                    </div>
+                    <div class="modal-footer">                                             
+                        <a href="#" class="btn" data-dismiss="modal">Cancelar</a>
+                        <a href="#" id="btnExclui" class="btn btn-danger">Excluir</a>                       
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /Modal Exclusão-->
+
         <script src="{{asset('js/bootstrap.min.js')}}"></script>
 
-        <!-- gauge js -->
+        <!-- gauge js 
         <script type="text/javascript" src="{{asset('js/gauge/gauge.min.js')}}"></script>
-        <script type="text/javascript" src="{{asset('js/gauge/gauge_demo.js')}}"></script>
+        <script type="text/javascript" src="{{asset('js/gauge/gauge_demo.js')}}"></script>-->
         <!-- bootstrap progress js -->
         <script src="{{asset('js/progressbar/bootstrap-progressbar.min.js')}}"></script>
         <script src="{{asset('js/nicescroll/jquery.nicescroll.min.js')}}"></script>
 
         <script src="{{asset('js/custom.js')}}"></script>
+        <script src="{{asset('js/pablo.js')}}"></script> 
 
-        <!-- upload de Imagens-->
-        <script type="text/javascript">
-$(function () {
-    $("#upload_link").on('click', function (e) {
-        e.preventDefault();
-        $("#upload:hidden").trigger('click');
-    });
-});
-        </script>
-
-        <!-- /footer content -->
     </body>
 
 </html>
