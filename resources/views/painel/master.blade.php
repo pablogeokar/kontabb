@@ -74,20 +74,12 @@
                             <div class="menu_section">
                                 <h3>Painel de Controle</h3>
                                 <ul class="nav side-menu">
-                                    <li><a><i class="fa fa-home"></i> Cadastros <span class="fa fa-chevron-down"></span></a>
+                                    <li><a><i class="fa fa-edit"></i> Cadastros <span class="fa fa-chevron-down"></span></a>
                                         <ul class="nav child_menu" style="display: none">
                                             <li><a href="{{url('painel/usuarios')}}">Usuários</a></li>
                                             <li><a href="{{url('painel/clientes')}}">Clientes</a></li>
                                         </ul>
-                                    </li>
-                                    <li><a><i class="fa fa-edit"></i> Menu2 <span class="fa fa-chevron-down"></span></a>
-                                        <ul class="nav child_menu" style="display: none">
-                                            <li><a href="empty.html">Menu2.1</a>
-                                            </li>
-                                            <li><a href="empty.html">Meny2.2s</a>
-                                            </li>
-                                        </ul>
-                                    </li>
+                                    </li>                                    
                                 </ul>
                             </div>
 
@@ -192,8 +184,9 @@
                         <h4 class="modal-title" id="myModalLabel">Confirmação de Exclusão</h4>
                     </div>
                     <div class="modal-body">
-                        Deseja realmente realizar a exclusão? <br>
-                        Esta operação não poderá ser desfeita.
+                        <h2>Deseja realmente realizar a exclusão?<br>
+                            Esta operação não poderá ser desfeita.
+                        </h2>
                     </div>
                     <div class="modal-footer">                                             
                         <a href="#" class="btn" data-dismiss="modal">Cancelar</a>

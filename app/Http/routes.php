@@ -12,7 +12,7 @@ Route::group(['prefix' => 'painel', 'middleware' => 'auth'], function() {
     Route::auth();
 
     Route::get('/', function () {
-        return view('painel.index');
+        return redirect('painel/clientes');
     });
 
     Route::controller('/usuarios', 'UsuariosController');
