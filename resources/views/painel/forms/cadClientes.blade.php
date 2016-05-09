@@ -4,10 +4,10 @@
 
 <div class="col-md-12 col-sm-12 col-xs-12">
     @if( isset($id))
-    <form method="post" action="/painel/clientes/editar/{{$id}}"
+    <form method="post" action="{{url('/painel/clientes/editar/'.$id)}}"
           class="form-horizontal form-label-left">
         @else
-        <form method="post" action="/painel/clientes/cadastrar"
+        <form method="post" action="{{url('/painel/clientes/cadastrar/')}}"
               class="form-horizontal form-label-left">
             @endif
 

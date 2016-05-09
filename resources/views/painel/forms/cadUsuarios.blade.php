@@ -5,11 +5,11 @@
 
 <div class="col-md-12 col-sm-12 col-xs-12">
     @if( isset($id))
-    <form method="post" action="/painel/usuarios/editar/{{$id}}"
+    <form method="post" action="{{url('/painel/usuarios/editar/'.$id)}}"
           class="form-horizontal form-label-left" id="demo-form2" novalidate=""
           data-parsley-validate="" enctype="multipart/form-data">
         @else
-        <form method="post" action="/painel/usuarios/cadastrar"
+        <form method="post" action="{{url('/painel/usuarios/cadastrar/')}}"
               class="form-horizontal form-label-left" id="demo-form2" novalidate=""
               data-parsley-validate="">
             @endif
