@@ -3,8 +3,8 @@
 @section('content')
 
 <div class="col-md-12 col-sm-12 col-xs-12">
-    @if( isset($id))
-    <form method="post" action="{{url('/painel/clientes/editar/'.$id)}}"
+    @if( isset($cpf_cnpj))
+    <form method="post" action="{{url('/painel/clientes/editar/'.$cpf_cnpj)}}"
           class="form-horizontal form-label-left">
         @else
         <form method="post" action="{{url('/painel/clientes/cadastrar/')}}"
@@ -38,6 +38,33 @@
                             <div class="col-md-6">
                                 <input name="cpf_cnpj" class="form-control input-md" id="cpf_cnpj" required="" type="text" placeholder="digite o CPF ou CNPJ" value="{{$clientes->cpf_cnpj or null}}">
                                 <span class="help-block">Apenas números sem pontos ou traços</span>  
+                            </div>
+                        </div>
+
+                        <!-- Select -->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="id_forma_tributacao">Forma de Tributação</label>  
+                            <div class="col-md-6">                                
+                                <select name="id_forma_tributacao">
+                                    @foreach ($formasTributacao as $opcao)                                                                                                                                              
+
+                                    @if (isset($clientes))
+
+                                    @if($clientes->id_forma_tributacao == $opcao->id)
+
+                                    <option selected="selected" value="{{$opcao->id}}">{{$opcao->nome}}</option>
+                                    @else
+
+                                    <option value="{{$opcao->id}}">{{$opcao->nome}}</option>
+                                    @endif
+
+                                    @else
+
+                                    <option value="{{$opcao->id}}">{{$opcao->nome}}</option>
+                                    @endif
+
+                                    @endforeach
+                                </select>
                             </div>
                         </div>
 
