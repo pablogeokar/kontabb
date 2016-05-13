@@ -7,6 +7,7 @@ use App\Http\Requests;
 use App\Cliente;
 use App\forma_tributacao;
 
+
 class ClienteController extends Controller {
 
     private $clientes;
@@ -20,7 +21,13 @@ class ClienteController extends Controller {
     //*********************************************************************
     //Exibe a listagem inicial 
     public function getIndex() {
-        $clientes = $this->clientes->all();
+        
+        //$clientes = $this->clientes->all();
+        
+        $clientes = $this->clientes
+                ->join('forma_tributacaos','forma_tributacaos.id','=','clientes.id_forma_tributacao')
+                ->get(); 
+        
         return view('painel.listagens.clientes', compact('clientes'));
     }
 

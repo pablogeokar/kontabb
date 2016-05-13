@@ -16,6 +16,7 @@
                 <thead>
                     <tr>
                         <th>CNPJ</th>
+                        <th>Forma Tributação</th>
                         <th>Razão Social</th>
                         <th>CPF do Responsável</th>
                         <th> </th>
@@ -25,15 +26,24 @@
                     @foreach($clientes as $cliente)
                     <tr>
                         <td scope="row">{{$cliente->cpf_cnpj}}</td>
+                        <td>{{$cliente->nome}}</td>
                         <td><a href="{{url('painel/clientes/editar')}}/{{$cliente->cpf_cnpj}}">{{$cliente->nome_razaosocial}}</a> </td>
                         <td>{{$cliente->cpf_responsavel}}</td>
-
-                        @if($cliente->codigo_simplesnacional != '')
-                        <td><a href="{{asset('servicos/simplesnacional/')}}?cnpj={{$cliente->cpf_cnpj}}&cpf={{$cliente->cpf_responsavel}}&codigo={{$cliente->codigo_simplesnacional}}" target="_blank">
+                        <td>
+                            @if($cliente->codigo_simplesnacional != '')
+                            <a href="{{asset('servicos/simplesnacional/')}}?cnpj={{$cliente->cpf_cnpj}}&cpf={{$cliente->cpf_responsavel}}&codigo={{$cliente->codigo_simplesnacional}}" target="_blank">
                                 <img src="{{asset('images/simples.png')}}" style="width: 28px; height: 28px; margin-top: 0;" title="Acessar o portal do Simples Nacional"/>
                             </a>
+                            @endif
+
+                            @if($cliente->login_sefaz_ba != '' && $cliente->senha_sefaz_ba != '')
+                            <a href="{{asset('servicos/sefaz-ba/')}}?login={{$cliente->login_sefaz_ba}}&senha={{$cliente->senha_sefaz_ba}}" target="_blank">
+                                <img src="{{asset('images/sefaz-ba.ico')}}" style="width: 28px; height: 28px; margin-top: 0;" title="Notas fiscais destinatário Sefaz-BA"/>
+                            </a>
+                            @endif
+
                         </td>
-                        @endif
+
 
                     </tr>
                     @endforeach

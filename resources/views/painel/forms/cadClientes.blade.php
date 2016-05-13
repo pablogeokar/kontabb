@@ -45,7 +45,7 @@
                         <div class="form-group">
                             <label class="col-md-4 control-label" for="id_forma_tributacao">Forma de Tributação</label>  
                             <div class="col-md-6">                                
-                                <select name="id_forma_tributacao">
+                                <select class="form-control" name="id_forma_tributacao">
                                     @foreach ($formasTributacao as $opcao)                                                                                                                                              
 
                                     @if (isset($clientes))
@@ -101,6 +101,23 @@
                             <div class="col-md-6">
                                 <input name="codigo_simplesnacional" class="form-control input-md" id="codigo_simplesnacional" type="text" placeholder="digite o código de acesso do Simples Nacional" value="{{$clientes->codigo_simplesnacional or null}}">
                                 <span class="help-block">Apenas números sem pontos ou traços</span>  
+                            </div>
+                        </div>
+                        
+                        <!-- Text input-->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="login_sefaz_ba">Login Sefaz-BA</label>  
+                            <div class="col-md-6">
+                                <input name="login_sefaz_ba" class="form-control input-md" id="login_sefaz_ba" type="text" placeholder="digite o código de acesso da Sefaz-BA" value="{{$clientes->login_sefaz_ba or null}}">
+                                <span class="help-block">Apenas números sem pontos ou traços</span>  
+                            </div>
+                        </div>
+                        
+                        <!-- Text input-->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="senha_sefaz_ba">Senha de acesso - Sefaz-BA</label>  
+                            <div class="col-md-6">
+                                <input name="senha_sefaz_ba" class="form-control input-md" id="senha_sefaz_ba" type="text" placeholder="digite a senha de acesso da Sefaz-BA" value="{{$clientes->senha_sefaz_ba or null}}">                                
                             </div>
                         </div>
 
