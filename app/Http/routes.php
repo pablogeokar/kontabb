@@ -17,7 +17,9 @@ Route::group(['prefix' => 'painel', 'middleware' => 'auth'], function() {
 
     Route::controller('/usuarios', 'UsuariosController');
     Route::controller('/clientes', 'ClienteController');
+    Route::controller('/obrigacoes', 'ObrigacoesController');
 });
+
 
 
 

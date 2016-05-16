@@ -78,6 +78,7 @@
                                         <ul class="nav child_menu" style="display: none">
                                             <li><a href="{{url('painel/usuarios')}}">Usuários</a></li>
                                             <li><a href="{{url('painel/clientes')}}">Clientes</a></li>
+                                            <li><a href="{{url('painel/obrigacoes')}}">Obrigações</a></li>
                                         </ul>
                                     </li>                                    
                                 </ul>
@@ -208,7 +209,7 @@
 
         <script src="{{asset('js/custom.js')}}"></script>
         <script src="{{asset('js/pablo.js')}}"></script> 
-
+        @yield('script')
     </body>
 
 </html>

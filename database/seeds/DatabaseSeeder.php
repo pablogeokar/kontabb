@@ -11,15 +11,15 @@ class DatabaseSeeder extends Seeder {
      */
     public function run() {
         // $this->call(UsersTableSeeder::class);
-        /*
+      
+        //Usuários       
         DB::table('users')->insert([
             'name' => 'Pablo George',
             'email' => 'pablogeokar@hotmail.com',
             'password' => Hash::make('230435'),
         ]);
-         * 
-         */
-
+         
+        //Formas de Tributação
         DB::table('forma_tributacaos')->insert([
             'nome' => 'Simples Nacional',
         ]);
@@ -38,6 +38,29 @@ class DatabaseSeeder extends Seeder {
         DB::table('forma_tributacaos')->insert([
             'nome' => 'Inativa Receita Federal',
         ]);
+         
+        
+        //CLiente
+        DB::table('clientes')->insert([
+            'cpf_cnpj' => '09044368000126',
+            'nome_razaosocial' => 'P G C C BORGES INFORMÁTICA'
+        ]);
+         
+        
+        //Obrigação
+        DB::table('obrigacaos')->insert([
+            'cpf_cnpj' => '09044368000126',
+            'mes' => 5,
+            'ano' => 2016,
+            'fl_pagto' => 1
+        ]);
+        DB::table('obrigacaos')->insert([
+            'cpf_cnpj' => '09044368000126',
+            'mes' => 5,
+            'ano' => 2016,
+            'fl_pagto' => 0
+        ]);
+        
     }
 
 }

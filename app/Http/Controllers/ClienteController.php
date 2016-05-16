@@ -6,14 +6,14 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Cliente;
 use App\forma_tributacao;
-
+use Cache;
 
 class ClienteController extends Controller {
 
     private $clientes;
     private $forma_tributacao;
 
-    public function __construct(Cliente $clientes, forma_tributacao $forma_tributacao ) {
+    public function __construct(Cliente $clientes, forma_tributacao $forma_tributacao) {
         $this->clientes = $clientes;
         $this->forma_tributacao = $forma_tributacao;
     }
@@ -21,13 +21,20 @@ class ClienteController extends Controller {
     //*********************************************************************
     //Exibe a listagem inicial 
     public function getIndex() {
-        
-        //$clientes = $this->clientes->all();
-        
+        /*
+          $clientes = Cache::remember('clientes', 60, function() {
+          return $this->clientes
+          ->join('forma_tributacaos', 'forma_tributacaos.id', '=', 'clientes.id_forma_tributacao')
+          ->orderBy('nome_razaosocial')
+          ->get();
+          });
+         * 
+         */
         $clientes = $this->clientes
-                ->join('forma_tributacaos','forma_tributacaos.id','=','clientes.id_forma_tributacao')
-                ->get(); 
-        
+                ->join('forma_tributacaos', 'forma_tributacaos.id', '=', 'clientes.id_forma_tributacao')
+                ->orderBy('nome_razaosocial')
+                ->get();
+
         return view('painel.listagens.clientes', compact('clientes'));
     }
 
@@ -57,13 +64,14 @@ class ClienteController extends Controller {
     //*********************************************************************
     //Exibe o formulário para edição
     public function getEditar($cpf_cnpj) {
-        $clientes = $this->clientes->where('cpf_cnpj', $cpf_cnpj )->first();
-                
+        $clientes = $this->clientes->where('cpf_cnpj', $cpf_cnpj)->first();
+
         //Busca as formas de tributação
         $formasTributacao = $this->forma_tributacao->get(['id', 'nome']);
         //$formasTributacao = $this->forma_tributacao->list('id', 'nome');
         return view('painel.forms.cadClientes', compact('clientes', 'cpf_cnpj', 'formasTributacao'));
     }
+
     //*********************************************************************
     //Salva os dados alterados
     public function postEditar(Request $request, $cpf_cnpj) {
@@ -74,6 +82,11 @@ class ClienteController extends Controller {
 
         //Redireciona para a rota de listagens
         return redirect('painel/clientes');
+    }
+
+    //Rota não encontrada
+    public function missingMethod($params = array()) {
+        return 'Erro 404, página não encontrada';
     }
 
 }
