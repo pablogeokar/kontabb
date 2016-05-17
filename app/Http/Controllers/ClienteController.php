@@ -62,6 +62,7 @@ class ClienteController extends Controller {
         (isset($dadosForm['cl_simples'])) ? $dadosForm['cl_simples'] = 1 : $dadosForm['cl_simples'] = 0;
         (isset($dadosForm['cl_darf_prolabore'])) ? $dadosForm['cl_darf_prolabore'] = 1 : $dadosForm['cl_darf_prolabore'] = 0;
         (isset($dadosForm['cl_cont_sindical'])) ? $dadosForm['cl_cont_sindical'] = 1 : $dadosForm['cl_cont_sindical'] = 0;
+        (isset($dadosForm['controla_obrigacoes'])) ? $dadosForm['controla_obrigacoes'] = 1 : $dadosForm['controla_obrigacoes'] = 0;
 
 
         //Cria um novo usuário
@@ -95,6 +96,7 @@ class ClienteController extends Controller {
         (isset($dadosForm['cl_simples'])) ? $dadosForm['cl_simples'] = 1 : $dadosForm['cl_simples'] = 0;
         (isset($dadosForm['cl_darf_prolabore'])) ? $dadosForm['cl_darf_prolabore'] = 1 : $dadosForm['cl_darf_prolabore'] = 0;
         (isset($dadosForm['cl_cont_sindical'])) ? $dadosForm['cl_cont_sindical'] = 1 : $dadosForm['cl_cont_sindical'] = 0;
+        (isset($dadosForm['controla_obrigacoes'])) ? $dadosForm['controla_obrigacoes'] = 1 : $dadosForm['controla_obrigacoes'] = 0;
 
         //Persiste a alteração no banco
         $this->clientes->where('cpf_cnpj', $cpf_cnpj)->update($dadosForm);

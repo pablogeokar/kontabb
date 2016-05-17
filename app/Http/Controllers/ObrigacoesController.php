@@ -7,15 +7,18 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 
 use App\Obrigacao;
+use App\Cliente;
 
 class ObrigacoesController extends Controller
 {
     
     private $Obrigacoes;
-    
-    public function __construct(Obrigacao $Obrigacoes) {
+    private $Clientes;
+
+
+    public function __construct(Obrigacao $Obrigacoes, Cliente $clientes) {
         $this->Obrigacoes = $Obrigacoes;
-     
+        $this->Clientes = $clientes;
     }
     
     public function getIndex(){
@@ -28,8 +31,11 @@ class ObrigacoesController extends Controller
                 ->where('mes', '=', $mesAtual)
                 ->where('ano', '=', $anoAtual)
                 ->join('clientes', 'clientes.cpf_cnpj', '=', 'obrigacaos.cpf_cnpj')                
-                ->get();        
-       
+                ->get()
+                ->toArray();
+        
+        
+               
         
         return view('painel.listagens.obrigacoes', compact('mesAtual', 'anoAtual', 'obrigacoes') );
     }
@@ -54,6 +60,32 @@ class ObrigacoesController extends Controller
         return  redirect('painel/obrigacoes');
         
     }
+    
+    public function getGerarObrigacoes($mes, $ano){
+        
+        $clientes = $this->Clientes
+                ->where('controla_obrigacoes', '=', '1')
+                ->get();                
+        
+        $obrigacoes = $this->Obrigacoes
+                ->where('mes', '=', $mes)
+                ->where('ano', '=', $ano)
+                ->get()
+                ->toArray();
+                
+        
+        if(!$obrigacoes){
+            foreach ($clientes as $cliente){
+                Obrigacao::create(['cpf_cnpj' => $cliente->cpf_cnpj, 'mes' => $mes, 'ano' => $ano]);
+            }
+        }
+        
+        return back();
+        
+        
+    }
+    
+    
     
       
 }

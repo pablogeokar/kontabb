@@ -46,14 +46,15 @@ class DatabaseSeeder extends Seeder {
             'nome_razaosocial' => 'P G C C BORGES INFORMÁTICA'
         ]);
          
-        
+        /*
         //Obrigação
         DB::table('obrigacaos')->insert([
             'cpf_cnpj' => '09044368000126',
             'mes' => 5,
-            'ano' => 2016,
-            'fl_pagto' => true
+            'ano' => 2016,            
         ]);
+         * 
+         */
         
     }
 

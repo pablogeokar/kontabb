@@ -156,57 +156,63 @@
                 <div class="x_panel">
                     <div class="x_title">                        
                         <h2>Configurações Gerais</h2>
-                        <i class="fa fa-wrench" aria-hidden="true"></i>
+                        <i class="fa fa-wrench" aria-hidden="true"></i>                        
                         <div class="clearfix"></div>
                     </div>
                     <div class="x_content">
                         <div class="form-group">
-                            
+
                             <h4>Obrigações Mensais</h4>
-                            <div class="separator"></div>
-                            
                             <div class="checkbox">
                                 <label>
-                                  {{ Form::checkbox('cl_fl_pagto', ($clientes->cl_fl_pagto or 0), ($clientes->cl_fl_pagto or 0)  ) }}
+                                    {{ Form::checkbox('controla_obrigacoes', ($clientes->controla_obrigacoes or 0), ($clientes->controla_obrigacoes or 0)  ) }}
+                                    Controlar obrigações mensais
+                                </label>
+                            </div>
+                            <div class="separator"></div>
+
+                            <div class="checkbox">
+                                <label>
+                                    {{ Form::checkbox('cl_fl_pagto', ($clientes->cl_fl_pagto or 0), ($clientes->cl_fl_pagto or 0)  ) }}
                                     Folha de Pagamento Mensal.
                                 </label>
                             </div>
-                            
+
                             <div class="checkbox">
                                 <label>
-                                  {{ Form::checkbox('cl_gps', ($clientes->cl_gps or 0), ($clientes->cl_gps or 0)  ) }}
+                                    {{ Form::checkbox('cl_gps', ($clientes->cl_gps or 0), ($clientes->cl_gps or 0)  ) }}
                                     GPS.
                                 </label>
                             </div>                            
-                            
+
                             <div class="checkbox">
                                 <label>
-                                  {{ Form::checkbox('cl_fgts', ($clientes->cl_fgts or 0), ($clientes->cl_fgts or 0)  ) }}
+                                    {{ Form::checkbox('cl_fgts', ($clientes->cl_fgts or 0), ($clientes->cl_fgts or 0)  ) }}
                                     FGTS.
                                 </label>
                             </div>  
-                            
+
                             <div class="checkbox">
                                 <label>
-                                  {{ Form::checkbox('cl_simples', ($clientes->cl_simples or 0), ($clientes->cl_simples or 0)  ) }}
+                                    {{ Form::checkbox('cl_simples', ($clientes->cl_simples or 0), ($clientes->cl_simples or 0)  ) }}
                                     DAS Simples Nacional.
                                 </label>
                             </div>
-                            
-                             <div class="checkbox">
+
+                            <div class="checkbox">
                                 <label>
-                                  {{ Form::checkbox('cl_darf_prolabore', ($clientes->cl_darf_prolabore or 0), ($clientes->cl_darf_prolabore or 0)  ) }}
+                                    {{ Form::checkbox('cl_darf_prolabore', ($clientes->cl_darf_prolabore or 0), ($clientes->cl_darf_prolabore or 0)  ) }}
                                     DARF Pro-Labore.
                                 </label>
                             </div>
-                            
-                             <div class="checkbox">
+
+                            <div class="checkbox">
                                 <label>
-                                  {{ Form::checkbox('cl_cont_sindical', ($clientes->cl_cont_sindical or 0), ($clientes->cl_cont_sindical or 0)  ) }}
+                                    {{ Form::checkbox('cl_cont_sindical', ($clientes->cl_cont_sindical or 0), ($clientes->cl_cont_sindical or 0)  ) }}
                                     Contribuição Sindical.
                                 </label>
                             </div> 
-                            
+
                         </div>
                     </div>                    
                 </div>

@@ -12,8 +12,7 @@ class CreateObrigacaosTable extends Migration
      */
     public function up()
     {
-        Schema::create('obrigacaos', function (Blueprint $table) {
-            $table->increments('id');
+        Schema::create('obrigacaos', function (Blueprint $table) {            
             $table->string('cpf_cnpj', 18);
             $table->integer('mes');
             $table->integer('ano');
@@ -25,8 +24,9 @@ class CreateObrigacaosTable extends Migration
             $table->boolean('cont_sindical')->nullable();
             $table->timestamps();
             
+            $table->primary(['cpf_cnpj', 'mes', 'ano']); 
             $table->foreign('cpf_cnpj')->references('cpf_cnpj')->on('clientes');
-            $table->unique('cpf_cnpj', 'mes', 'ano');
+                      
         });
     }
 

@@ -19,6 +19,7 @@ class AddColumsToCliente extends Migration
             $table->boolean('cl_simples')->nullable();
             $table->boolean('cl_darf_prolabore')->nullable();
             $table->boolean('cl_cont_sindical')->nullable();
+            $table->boolean('controla_obrigacoes')->default(0);
         });
     }
 

@@ -1,7 +1,7 @@
 <?php
 
 
-$site = "http://www8.receita.fazenda.gov.br/SimplesNacional/controleAcesso/Autentica.aspx?id=5";
+$site = "http://www8.receita.fazenda.gov.br/SimplesNacional/controleAcesso/Autentica.aspx?id=6";
 
 $cnpj = null;
 $cpf_responsavel = null;
@@ -24,7 +24,7 @@ curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, $timeout);
 $conteudo = curl_exec($ch);
 curl_close($ch);
 
-$conteudoTratado = str_replace("Autentica.aspx?id=5", "http://www8.receita.fazenda.gov.br/SimplesNacional/controleAcesso/Autentica.aspx?id=5", $conteudo);
+$conteudoTratado = str_replace("Autentica.aspx?id=6", "http://www8.receita.fazenda.gov.br/SimplesNacional/controleAcesso/Autentica.aspx?id=6", $conteudo);
 $conteudoTratado = str_replace("../", "http://www8.receita.fazenda.gov.br/SimplesNacional/", $conteudoTratado);
 $conteudoTratado = str_replace("img src=\"/", "img src=\"http://www8.receita.fazenda.gov.br/", $conteudoTratado);
 $conteudoTratado = str_replace("\"ContentPlaceHolder_txtCNPJ\"", "\"ContentPlaceHolder_txtCNPJ\" value=\"$cnpj\"", $conteudoTratado);
