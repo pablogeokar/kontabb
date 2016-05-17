@@ -35,6 +35,8 @@ class ClienteController extends Controller {
                 ->orderBy('nome_razaosocial')
                 ->get();
 
+        //dd($clientes);
+
         return view('painel.listagens.clientes', compact('clientes'));
     }
 
@@ -52,6 +54,15 @@ class ClienteController extends Controller {
     //post Cadastrar
     public function postCadastrar(Request $request) {
         $dadosForm = $request->except('_token');
+
+        //Verifica se os checkBox estão marcados
+        (isset($dadosForm['cl_fl_pagto'])) ? $dadosForm['cl_fl_pagto'] = 1 : $dadosForm['cl_fl_pagto'] = 0;
+        (isset($dadosForm['cl_gps'])) ? $dadosForm['cl_gps'] = 1 : $dadosForm['cl_gps'] = 0;
+        (isset($dadosForm['cl_fgts'])) ? $dadosForm['cl_fgts'] = 1 : $dadosForm['cl_fgts'] = 0;
+        (isset($dadosForm['cl_simples'])) ? $dadosForm['cl_simples'] = 1 : $dadosForm['cl_simples'] = 0;
+        (isset($dadosForm['cl_darf_prolabore'])) ? $dadosForm['cl_darf_prolabore'] = 1 : $dadosForm['cl_darf_prolabore'] = 0;
+        (isset($dadosForm['cl_cont_sindical'])) ? $dadosForm['cl_cont_sindical'] = 1 : $dadosForm['cl_cont_sindical'] = 0;
+
 
         //Cria um novo usuário
         $this->clientes->create($dadosForm);
@@ -76,6 +87,14 @@ class ClienteController extends Controller {
     //Salva os dados alterados
     public function postEditar(Request $request, $cpf_cnpj) {
         $dadosForm = $request->except('_token', 'salvar');
+
+        //Verifica se os checkBox estão marcados
+        (isset($dadosForm['cl_fl_pagto'])) ? $dadosForm['cl_fl_pagto'] = 1 : $dadosForm['cl_fl_pagto'] = 0;
+        (isset($dadosForm['cl_gps'])) ? $dadosForm['cl_gps'] = 1 : $dadosForm['cl_gps'] = 0;
+        (isset($dadosForm['cl_fgts'])) ? $dadosForm['cl_fgts'] = 1 : $dadosForm['cl_fgts'] = 0;
+        (isset($dadosForm['cl_simples'])) ? $dadosForm['cl_simples'] = 1 : $dadosForm['cl_simples'] = 0;
+        (isset($dadosForm['cl_darf_prolabore'])) ? $dadosForm['cl_darf_prolabore'] = 1 : $dadosForm['cl_darf_prolabore'] = 0;
+        (isset($dadosForm['cl_cont_sindical'])) ? $dadosForm['cl_cont_sindical'] = 1 : $dadosForm['cl_cont_sindical'] = 0;
 
         //Persiste a alteração no banco
         $this->clientes->where('cpf_cnpj', $cpf_cnpj)->update($dadosForm);

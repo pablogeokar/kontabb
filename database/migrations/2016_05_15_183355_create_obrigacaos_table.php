@@ -26,6 +26,7 @@ class CreateObrigacaosTable extends Migration
             $table->timestamps();
             
             $table->foreign('cpf_cnpj')->references('cpf_cnpj')->on('clientes');
+            $table->unique('cpf_cnpj', 'mes', 'ano');
         });
     }
 

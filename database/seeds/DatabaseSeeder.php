@@ -52,13 +52,7 @@ class DatabaseSeeder extends Seeder {
             'cpf_cnpj' => '09044368000126',
             'mes' => 5,
             'ano' => 2016,
-            'fl_pagto' => 1
-        ]);
-        DB::table('obrigacaos')->insert([
-            'cpf_cnpj' => '09044368000126',
-            'mes' => 5,
-            'ano' => 2016,
-            'fl_pagto' => 0
+            'fl_pagto' => true
         ]);
         
     }

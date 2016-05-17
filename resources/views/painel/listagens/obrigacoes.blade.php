@@ -39,27 +39,34 @@
 <div class="row">
     <div class="col-md-12 col-sm-12 col-xs-12">
         <div class="x_panel">
-            <div class="x_content">
-                <table class="table table-hover">
-                    <thead>
-                        <tr>
-                            <th>C.N.P.J.</th>
-                            <th>Razão Social</th>
-                            <th>Fl.Pagamento</th>
-                            <th>GPS</th>
-                            <th>FGTS</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                            @foreach($obrigacoes as $obrigacao)
-                            <tr>
-                                <td>{{$obrigacao->cpf_cnpj}}</td>
-                                <td>{{$obrigacao->nome_razaosocial}}</td>
-                                <td>{{ ($obrigacao->cl_fl_pagto == 1) ? Form::checkbox('fl_pagto', $obrigacao->fl_pagto, $obrigacao->fl_pagto  ) : 'Não se aplica' }}</td>                               
-                            </tr>
-                            @endforeach
-                    </tbody>
-                </table>
+            <div class="x_content">                               
+                <div class="row">
+                    <div class="col-sm-1">C.N.P.J.</div>
+                    <div class="col-sm-3">Razão Social</div>
+                    <div class="col-sm-1">Fl.Pagamento</div>
+                    <div class="col-sm-1">GPS</div>
+                    <div class="col-sm-1">FGTS</div>
+                    <div class="col-sm-1">DAS Simples</div>
+                    <div class="col-sm-1">DARF Pró-Labore</div>
+                    <div class="col-sm-1">Cont. Sindical</div>
+                    <div class="clearfix"></div>
+                    <div class="separator"></div>                    
+                </div>
+                @foreach($obrigacoes as $obrigacao)
+                <div class="row">
+                    {!! Form::open(array('url' => url('painel/obrigacoes/editar/'.$obrigacao->cpf_cnpj.'/'.$obrigacao->mes.'/'.$obrigacao->ano))) !!}                                     
+                    <div class="col-sm-1">{{$obrigacao->cpf_cnpj}}</div>
+                    <div class="col-sm-3">{{$obrigacao->nome_razaosocial}}</div>
+                    <div class="col-sm-1">{{ ($obrigacao->cl_fl_pagto == 1) ? Form::checkbox('fl_pagto', 1, $obrigacao->fl_pagto  ) : 'Não se aplica' }}</div>
+                    <div class="col-sm-1">{{ ($obrigacao->cl_gps == 1) ? Form::checkbox('gps', 1, $obrigacao->gps  ) : 'Não se aplica' }}</div>
+                    <div class="col-sm-1">{{ ($obrigacao->cl_fgts == 1) ? Form::checkbox('fgts', 1, $obrigacao->fgts  ) : 'Não se aplica' }}</div>
+                    <div class="col-sm-1">{{ ($obrigacao->cl_simples == 1) ? Form::checkbox('simples', 1, $obrigacao->simples  ) : 'Não se aplica' }}</div>
+                    <div class="col-sm-1">{{ ($obrigacao->cl_darf_prolabore == 1) ? Form::checkbox('darf_prolabore', 1, $obrigacao->darf_prolabore  ) : 'Não se aplica' }}</div>
+                    <div class="col-sm-1">{{ ($obrigacao->cl_cont_sindical == 1) ? Form::checkbox('cont_sindical', 1, $obrigacao->cont_sindical  ) : 'Não se aplica' }}</div>
+                    <div class="col-sm-1">{{ Form::submit('Salvar')}}</div>
+                    {!! Form::close() !!}
+                </div>
+                @endforeach
             </div>            
         </div>        
     </div>    
