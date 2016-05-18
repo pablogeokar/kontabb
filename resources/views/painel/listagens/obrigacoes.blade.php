@@ -41,6 +41,7 @@
         <div class="x_panel">
             <div class="x_content">                               
                 <div class="row">
+                    {!! Form::hidden('',url('painel/obrigacoes'), ['id' => 'acao']) !!}
                     @if ($obrigacoes)                    
                     <div class="col-sm-1">C.N.P.J.</div>
                     <div class="col-sm-3">Razão Social</div>
@@ -94,12 +95,14 @@
         var mes = $('#mes').val();
         var ano = $('#ano').val();
         var link = $('a#gerar').attr('href');
+        var linklistagem = $('#acao').val();
         $('a#gerar').attr('href', link + '/' + mes + '/' + ano);
 
         $('#mes').on('change', function () {
             mes = $('#mes').val();
             ano = $('#ano').val();
             $('a#gerar').attr('href', link + '/' + mes + '/' + ano);
+            window.location = linklistagem+'/index/'+mes+'/'+ano;
         });
 
     });

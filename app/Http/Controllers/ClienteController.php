@@ -45,7 +45,7 @@ class ClienteController extends Controller {
     //Exibe o formulário para cadastrar
     public function getCadastrar() {
         //Busca as formas de tributação
-        $formasTributacao = $this->forma_tributacao->get();
+        $formasTributacao = $this->forma_tributacao->get();        
         return view('painel.forms.cadClientes', compact('formasTributacao'));
     }
 

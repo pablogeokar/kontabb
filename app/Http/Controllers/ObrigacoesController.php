@@ -21,7 +21,7 @@ class ObrigacoesController extends Controller
         $this->Clientes = $clientes;
     }
     
-    public function getIndex(){
+    public function getIndex($mes = null, $ano = null){
         //Variáveis mês e ano atual
         $mesAtual = isset($mes) ? $mes : (int) date('m');      
         $anoAtual = (int) date('Y');
@@ -30,12 +30,11 @@ class ObrigacoesController extends Controller
         $obrigacoes = $this->Obrigacoes
                 ->where('mes', '=', $mesAtual)
                 ->where('ano', '=', $anoAtual)
-                ->join('clientes', 'clientes.cpf_cnpj', '=', 'obrigacaos.cpf_cnpj')                
+                ->join('clientes', 'clientes.cpf_cnpj', '=', 'obrigacaos.cpf_cnpj')
+                ->orderBy('nome_razaosocial')
                 ->get()
                 ->toArray();
         
-        
-               
         
         return view('painel.listagens.obrigacoes', compact('mesAtual', 'anoAtual', 'obrigacoes') );
     }
@@ -64,21 +63,27 @@ class ObrigacoesController extends Controller
     public function getGerarObrigacoes($mes, $ano){
         
         $clientes = $this->Clientes
-                ->where('controla_obrigacoes', '=', '1')
-                ->get();                
+                ->where('controla_obrigacoes', '1')
+                ->get()
+                ->toArray();
         
         $obrigacoes = $this->Obrigacoes
-                ->where('mes', '=', $mes)
-                ->where('ano', '=', $ano)
+                ->where('mes', $mes)
+                ->where('ano', $ano)
                 ->get()
                 ->toArray();
                 
         
         if(!$obrigacoes){
             foreach ($clientes as $cliente){
-                Obrigacao::create(['cpf_cnpj' => $cliente->cpf_cnpj, 'mes' => $mes, 'ano' => $ano]);
+                Obrigacao::create(['cpf_cnpj' => $cliente['cpf_cnpj'], 'mes' => $mes, 'ano' => $ano]);
             }
+        } else {
+            
+            //
+            
         }
+       
         
         return back();
         

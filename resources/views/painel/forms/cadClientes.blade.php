@@ -165,7 +165,7 @@
                             <h4>Obrigações Mensais</h4>
                             <div class="checkbox">
                                 <label>
-                                    {{ Form::checkbox('controla_obrigacoes', ($clientes->controla_obrigacoes or 0), ($clientes->controla_obrigacoes or 0)  ) }}
+                                    {{ Form::checkbox('controla_obrigacoes', 1, (isset($clientes->controla_obrigacoes) ? $clientes->controla_obrigacoes : 0)  ) }}
                                     Controlar obrigações mensais
                                 </label>
                             </div>
@@ -173,42 +173,42 @@
 
                             <div class="checkbox">
                                 <label>
-                                    {{ Form::checkbox('cl_fl_pagto', ($clientes->cl_fl_pagto or 0), ($clientes->cl_fl_pagto or 0)  ) }}
+                                    {{ Form::checkbox('cl_fl_pagto', 1, (isset($clientes->cl_fl_pagto) ? $clientes->cl_fl_pagto : 0)  ) }}
                                     Folha de Pagamento Mensal.
                                 </label>
                             </div>
 
                             <div class="checkbox">
                                 <label>
-                                    {{ Form::checkbox('cl_gps', ($clientes->cl_gps or 0), ($clientes->cl_gps or 0)  ) }}
+                                    {{ Form::checkbox('cl_gps', 1, (isset($clientes->cl_gps) ? $clientes->cl_gps : 0)  ) }}
                                     GPS.
                                 </label>
                             </div>                            
 
                             <div class="checkbox">
                                 <label>
-                                    {{ Form::checkbox('cl_fgts', ($clientes->cl_fgts or 0), ($clientes->cl_fgts or 0)  ) }}
+                                    {{ Form::checkbox('cl_fgts', 1, (isset($clientes->cl_fgts) ? $clientes->cl_fgts : 0)  ) }}
                                     FGTS.
                                 </label>
                             </div>  
 
                             <div class="checkbox">
                                 <label>
-                                    {{ Form::checkbox('cl_simples', ($clientes->cl_simples or 0), ($clientes->cl_simples or 0)  ) }}
+                                    {{ Form::checkbox('cl_simples', 1, (isset($clientes->cl_simples) ? $clientes->cl_simples : 0)  ) }}
                                     DAS Simples Nacional.
                                 </label>
                             </div>
 
                             <div class="checkbox">
                                 <label>
-                                    {{ Form::checkbox('cl_darf_prolabore', ($clientes->cl_darf_prolabore or 0), ($clientes->cl_darf_prolabore or 0)  ) }}
+                                    {{ Form::checkbox('cl_darf_prolabore', 1, (isset($clientes->cl_darf_prolabore) ? $clientes->cl_darf_prolabore : 0)  ) }}
                                     DARF Pro-Labore.
                                 </label>
                             </div>
 
                             <div class="checkbox">
                                 <label>
-                                    {{ Form::checkbox('cl_cont_sindical', ($clientes->cl_cont_sindical or 0), ($clientes->cl_cont_sindical or 0)  ) }}
+                                    {{ Form::checkbox('cl_cont_sindical', 1, (isset($clientes->cl_cont_sindical) ? $clientes->cl_cont_sindical : 0)  ) }}
                                     Contribuição Sindical.
                                 </label>
                             </div> 
