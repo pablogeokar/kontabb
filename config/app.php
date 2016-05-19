@@ -145,6 +145,11 @@ return [
          * Laravel DebugBar
          */
         Barryvdh\Debugbar\ServiceProvider::class,
+        /*
+         * DropBox
+         */
+        GrahamCampbell\Dropbox\DropboxServiceProvider::class, 
+       
 
     ],
     /*
@@ -194,5 +199,10 @@ return [
          */
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
+        /*
+         * DropBox
+         */
+        'Dropbox' => GrahamCampbell\Dropbox\Facades\Dropbox::class,
+        
     ],
 ];
