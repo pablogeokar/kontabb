@@ -8,26 +8,35 @@ use GrahamCampbell\Dropbox\Facades\Dropbox;
 
 class ArquivosController extends Controller {
 
-    public function getIndex() {
+    
+    //http://kontabb.local/arquivos/gps/busca/2016/04/03198283000116
+    public function getBusca($documento, $ano, $mes, $cnpj) {
 
-
-        $busca = Dropbox::searchFileNames('/FGTS/2016/032016', 'GPS_07754759000109');
-
-        if ($busca) {
-            $f = fopen('./documentos/GPS07754759000109.pdf', 'wd');
-            $ultimoElemento = count($busca);
-            Dropbox::getFile($busca[$ultimoElemento - 1]['path'], $f);
-            fclose($f);
-
-            return redirect('/arquivos/download');
+        switch ($documento) {
+            case 'gps':
+                $doc = 'GPS_';
+                break;
         }
-        
+
+
+        if (isset($doc)) {
+            $busca = Dropbox::searchFileNames('/SEFIP/'.$ano.'/'.$mes.$ano, $doc . $cnpj);
+
+            if ($busca) {
+                $f = fopen('./documentos/'.$doc.$cnpj.'.pdf', 'wd');
+                $ultimoElemento = count($busca);
+                Dropbox::getFile($busca[$ultimoElemento - 1]['path'], $f);
+                fclose($f);                
+                return redirect('/arquivos/download/'.$doc.$cnpj.'.pdf');
+            }
+        }
+
         return "Arquivo não Encontrado!";
     }
 
-    public function getDownload() {
+    public function getDownload($nomeDocumento) {
         header('Content-Type: application/pdf; charset:utf-8;');
-        readfile(url('documentos/GPS07754759000109.pdf'));
+        readfile(url('documentos/'.$nomeDocumento));
     }
 
 }
