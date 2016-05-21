@@ -36,7 +36,8 @@
                 <section class="login_content">
                     <img src="images/logo-png.png" alt="">
                     <form method="POST" action="{{ url('/login') }}">
-                        <h1>Acesso ao Sistema</h1>
+                        <h1>Acesso ao Sistema</h1>                        
+                            
                         {!! csrf_field() !!}
                         
                         <!--Mensagens do Sistema -->
@@ -56,17 +57,18 @@
                             <input type="text" class="form-control" placeholder="e-mail" required="" name="email"/>
                         </div>
                         <div>
-                            <input type="password" class="form-control" placeholder="Senha" required="" name="password"/>
+                            <input type="password" class="form-control" placeholder="Senha" required="" name="password"/>                          
                         </div>
                         <div>
                             <input type="submit" class="btn btn-default submit" value="Logar" name="logar"/>
                             <!--<a class="reset_pass" href="{{ url('/password/reset')}}" data-target="#ModalLembrarSenha" data-toggle="modal">esqueci minha senha?</a>-->
                             <a class="reset_pass" href="" data-target="#ModalLembrarSenha" data-toggle="modal">esqueci minha senha?</a>
-                        </div>
-                        <div class="clearfix"></div>
+                        </div>                         
+                        <div class="clearfix"></div>                        
                     </form>
+                    <span class="pull-right">v1.0.0</span> 
                 </section>
-            </div>
+            </div>           
         </div>
 
         <!-- Modal lembrar Senha -->
@@ -101,7 +103,7 @@
                     </div>                    
                 </div>
             </div>
-        </div>
+        </div>        
         <!-- /Modal Exclusão-->
         
         <script src="{{asset('js/jquery.min.js')}}"></script>
