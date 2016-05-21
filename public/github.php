@@ -1,5 +1,8 @@
 <?php
-$r = shell_exec('/usr/bin/git pull 2>&1');
-var_dump($r);
 
+$key = isset($_GET['k']) ? $_GET['k'] : null;
+
+chdir(__DIR__.'/..');
+
+exec('php github.php '.$key.' > deploy.log &');
 
