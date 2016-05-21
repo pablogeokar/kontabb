@@ -1,4 +1,4 @@
 <?php
-$r = shell_exec('sudo /usr/bin/git pull 2>&1');
+$r = shell_exec('sudo git pull');
 var_dump($r);
 
