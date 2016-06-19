@@ -3,17 +3,17 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateClientesTable extends Migration
-{
+class CreateClientesTable extends Migration {
+
     /**
      * Run the migrations.
      *
      * @return void
      */
-    public function up()
-    {
-         Schema::create('clientes', function (Blueprint $table) {
-            $table->string('cpf_cnpj', 18);
+    public function up() {
+        Schema::create('clientes', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('cpf_cnpj', 18)->unique();
             $table->string('nome_razaosocial', 160);
             $table->string('cpf_responsavel', 14)->nullable();
             $table->string('nome_responsavel', 160)->nullable();
@@ -29,8 +29,7 @@ class CreateClientesTable extends Migration
             $table->boolean('controla_obrigacoes')->default(0);
             $table->rememberToken();
             $table->timestamps();
-            $table->primary('cpf_cnpj');
-
+            //$table->primary('cpf_cnpj');
         });
     }
 
@@ -39,8 +38,8 @@ class CreateClientesTable extends Migration
      *
      * @return void
      */
-    public function down()
-    {
+    public function down() {
         Schema::drop('clientes');
     }
+
 }

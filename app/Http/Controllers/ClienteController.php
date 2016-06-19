@@ -6,10 +6,12 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Cliente;
 use App\forma_tributacao;
-use Cache;
+use Illuminate\Support\Facades\Hash;
+
 
 class ClienteController extends Controller {
 
+    
     private $clientes;
     private $forma_tributacao;
 
@@ -45,7 +47,7 @@ class ClienteController extends Controller {
     //Exibe o formulário para cadastrar
     public function getCadastrar() {
         //Busca as formas de tributação
-        $formasTributacao = $this->forma_tributacao->get();        
+        $formasTributacao = $this->forma_tributacao->get();
         return view('painel.forms.cadClientes', compact('formasTributacao'));
     }
 
@@ -63,6 +65,8 @@ class ClienteController extends Controller {
         (isset($dadosForm['cl_darf_prolabore'])) ? $dadosForm['cl_darf_prolabore'] = 1 : $dadosForm['cl_darf_prolabore'] = 0;
         (isset($dadosForm['cl_cont_sindical'])) ? $dadosForm['cl_cont_sindical'] = 1 : $dadosForm['cl_cont_sindical'] = 0;
         (isset($dadosForm['controla_obrigacoes'])) ? $dadosForm['controla_obrigacoes'] = 1 : $dadosForm['controla_obrigacoes'] = 0;
+        ($dadosForm['password'] != '') ? $dadosForm['password'] = Hash::make($dadosForm['password']) : $dadosForm = $request->except('_token', 'salvar', 'password');;
+         
 
 
         //Cria um novo usuário
@@ -97,6 +101,7 @@ class ClienteController extends Controller {
         (isset($dadosForm['cl_darf_prolabore'])) ? $dadosForm['cl_darf_prolabore'] = 1 : $dadosForm['cl_darf_prolabore'] = 0;
         (isset($dadosForm['cl_cont_sindical'])) ? $dadosForm['cl_cont_sindical'] = 1 : $dadosForm['cl_cont_sindical'] = 0;
         (isset($dadosForm['controla_obrigacoes'])) ? $dadosForm['controla_obrigacoes'] = 1 : $dadosForm['controla_obrigacoes'] = 0;
+        ($dadosForm['password'] != '') ? $dadosForm['password'] = Hash::make($dadosForm['password']) : $dadosForm = $request->except('_token', 'salvar', 'password');;
 
         //Persiste a alteração no banco
         $this->clientes->where('cpf_cnpj', $cpf_cnpj)->update($dadosForm);
@@ -104,6 +109,8 @@ class ClienteController extends Controller {
         //Redireciona para a rota de listagens
         return redirect('painel/clientes');
     }
+
+    
 
     //Rota não encontrada
     public function missingMethod($params = array()) {

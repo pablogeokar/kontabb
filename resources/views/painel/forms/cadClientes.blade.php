@@ -134,7 +134,7 @@
                         <div class="form-group">
                             <label class="col-md-4 control-label" for="password">Senha</label>  
                             <div class="col-md-6">
-                                <input name="password" class="form-control input-md" id="password" type="password" placeholder="senha para acesso a área do cliente" value="{{$clientes->password or null}}">
+                                <input name="password" class="form-control input-md" id="password" type="password" placeholder="senha para acesso a área do cliente" value="">
 
                             </div>
                         </div>
