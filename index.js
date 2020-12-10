@@ -1,7 +1,7 @@
 const path = require('path')
 const XLSX = require('xlsx');
 
-const filename = path.resolve(__dirname, 'upload', 'historico-de-vendas-2020-11-01-2020-11-30.xls');
+const filename = path.resolve(__dirname, 'upload', 'extrato.xls');
 
 
 function Somar() {
@@ -99,7 +99,17 @@ async function readExcelFile() {
 readExcelFile();
 
 let valorTotalBruto = arrVendas.reduce(function (acumulador, valorAtual) {
-    return Number(acumulador) + Number(valorAtual)
-})
+    return Number(acumulador) + Number(valorAtual.venda_bruta)
+}, 0)
+
+let valorTotalDespesas = arrVendas.reduce(function (acumulador, valorAtual) {
+    return Number(acumulador) + Number(valorAtual.despesas)
+}, 0)
+
+let valorTotalLiquido = arrVendas.reduce(function (acumulador, valorAtual) {
+    return Number(acumulador) + Number(valorAtual.venda_liquida)
+}, 0)
+
+
 console.log(arrVendas)
-console.log(valorTotalBruto)
+console.log({ 'valor_total_bruto': valorTotalBruto.toFixed(2), 'valor_total_despesas': valorTotalDespesas.toFixed(2), 'valor_total_liquido': valorTotalLiquido.toFixed(2) })
