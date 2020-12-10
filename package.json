@@ -1,12 +1,13 @@
 {
-  "private": true,
+  "name": "kontabb-node",
+  "version": "1.0.0",
+  "main": "index.js",
   "scripts": {
-    "prod": "gulp --production",
-    "dev": "gulp watch"
+    "start" : "nodemon index.js"
   },
-  "devDependencies": {
-    "gulp": "^3.9.1",
-    "laravel-elixir": "^5.0.0",
-    "bootstrap-sass": "^3.3.0"
+  "author": "Pablo George <pablogeokar@hotmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "xlsx": "^0.16.1"
   }
 }
