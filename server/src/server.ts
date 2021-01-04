@@ -3,6 +3,7 @@ import cors from 'cors'
 import path from 'path'
 import morgan from 'morgan'
 import helmet from 'helmet'
+import handlebars from 'express-handlebars'
 
 import routes from './routes'
 import corsOptions from './middlewares/cors'
@@ -10,6 +11,12 @@ import limiter from './middlewares/rateLimit'
 
 const app = express()
 
+// VIEWS
+app.engine('.html', handlebars({extname: '.html'}));
+app.set('view engine', '.html');
+app.set('views', path.join(__dirname, 'views/'))
+
+// MIDDLEWARES
 app.use(morgan('common'))
 app.use(helmet())
 app.use(cors(corsOptions))

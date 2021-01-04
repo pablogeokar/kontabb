@@ -8,9 +8,10 @@ const upload = multer(uploadConfigMiddleware)
 
 import CieloController from './controllers/CieloController'
 
-routes.get('/', (req, res) => {
-    return res.json({ active: true })
-})
+routes.get('/', function (req, res, next) {
+    //res.render('home', {layout: false});
+    res.render('home');
+});
 
 routes.post('/upload', upload.array('extratos'), CieloController.create)
 
