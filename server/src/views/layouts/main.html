@@ -13,7 +13,7 @@
     #wrapper {
         overflow-x: hidden;
     }
-
+    
     #sidebar-wrapper {
         min-height: 100vh;
         margin-left: -15rem;
@@ -22,34 +22,32 @@
         -o-transition: margin .25s ease-out;
         transition: margin .25s ease-out;
     }
-
+    
     #sidebar-wrapper .sidebar-heading {
         padding: 0.875rem 1.25rem;
         font-size: 1.2rem;
     }
-
+    
     #sidebar-wrapper .list-group {
         width: 15rem;
     }
-
+    
     #page-content-wrapper {
         min-width: 100vw;
     }
-
+    
     #wrapper.toggled #sidebar-wrapper {
         margin-left: 0;
     }
-
+    
     @media (min-width: 768px) {
         #sidebar-wrapper {
             margin-left: 0;
         }
-
         #page-content-wrapper {
             min-width: 0;
             width: 100%;
         }
-
         #wrapper.toggled #sidebar-wrapper {
             margin-left: -15rem;
         }
@@ -62,25 +60,26 @@
 
         <!-- Sidebar -->
         <div class="border-right" style="background-color: #34495e;" id="sidebar-wrapper">
-            <div class="sidebar-heading" style="color: #fff;">Start Bootstrap </div>
+            <div class="sidebar-heading" style="color: #fff;">Dashboard</div>
             <div class="list-group list-group-flush">
-                <a href="#" class="list-group-item list-group-item-action"
-                    style="color: #fff; background-color: #34495e;">Dashboard</a>
+                <a href="#" class="list-group-item list-group-item-action" style="color: #fff; background-color: #34495e;">Demonstrativo Cielo</a>
             </div>
         </div>
         <!-- /#sidebar-wrapper -->
 
         <!-- Page Content -->
-        <div id="page-content-wrapper">
+        <div id="page-content-wrapper" style="background-color: #ecf0f1;">
 
-            <nav class="navbar navbar-expand-lg navbar-light border-bottom" style="background-color: #ecf0f1">
+            <nav class="navbar navbar-expand-lg navbar-light border-bottom p-3" style="background-color: #fff;">
 
                 <img src="/assets/images/logo-transparente.png" alt="" srcset="">
-               
+
             </nav>
 
             <div class="container-fluid p-3">
-                {{{body}}}
+                <div class="container-fluid p-5">
+                    {{{body}}}
+                </div>
             </div>
         </div>
         <!-- /#page-content-wrapper -->

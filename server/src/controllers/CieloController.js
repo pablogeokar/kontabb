@@ -121,6 +121,8 @@ export default {
 
         const dados = await processaArquivo(filename)
 
-        return res.json({ files, dados })
+        //return res.json({ files, dados })
+        console.log(dados)
+        return res.render('tabela', { dados })
     }
 }

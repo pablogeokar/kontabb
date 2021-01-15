@@ -1,0 +1,23 @@
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">Data Venda</th>
+            <th scope="col">Venda Bruta</th>
+            <th scope="col">Valor Despesas</th>
+            <th scope="col">Valor Líquido</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each dados.arrVendas}}
+        <tr>
+            <th scope="row">{{data_venda}}</th>
+            <td>{{venda_bruta}}</td>
+            <td>{{despesas}}</td>
+            <td>{{venda_liquida}}</td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+<strong>Valor total Bruto </strong> <span>R$ {{dados/valorTotalBruto}}</span> <br />
+<strong>Valor total Despesas </strong> <span>R$ {{dados/valorTotalDespesas}}</span> <br />
+<strong>Valor total Líquido </strong> <span>R$ {{dados/valorTotalLiquido}}</span> <br />

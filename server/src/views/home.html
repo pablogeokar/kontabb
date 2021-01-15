@@ -1,1 +1,7 @@
-<h1>Example App: Home</h1>
+<form method="POST" action="/upload" enctype='multipart/form-data'>
+    <div class="mb-3">
+        <label for="formFileMultiple" class="form-label">Anexar Demonstrativo da Cielo (*.xls)</label>
+        <input class="form-control" type="file" id="formFileMultiple" name="extratos" multiple>
+    </div>
+    <button type="submit" class="btn btn-primary">Processar Arquivo</button>
+</form>
