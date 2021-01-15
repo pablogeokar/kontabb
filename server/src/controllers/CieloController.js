@@ -1,12 +1,7 @@
-import { Request, Response } from 'express'
 import path from 'path'
 import XLSX from 'xlsx'
 
-interface iDados {
-    dataVenda: String
-}
 
-let arrVendas: [] = [];
 
 function Somar() {
     var soma = 0;
@@ -18,14 +13,15 @@ function Somar() {
     return soma;
 }
 
-async function processaArquivo(path: String) {
+async function processaArquivo(path) {
     /* data is a node Buffer that can be passed to XLSX.read */
     let workbook = XLSX.readFile(String(path));
     /* convert from workbook to array of arrays */
     let first_worksheet = workbook.Sheets[workbook.SheetNames[0]];
     let data = XLSX.utils.sheet_to_json(first_worksheet, { header: 1 });
 
-    let dataVenda = '';
+    let arrVendas = []
+    let dataVenda;
     let valorBruto = 0;
     let valorLiquido = 0;
     let valorBrutoVendaSanitized = 0;
@@ -33,7 +29,8 @@ async function processaArquivo(path: String) {
     let valorDesps = 0;
     let valorDespsSanitized = 0;
 
-    for (let index: number = 5; index < data.length; index++) {
+
+    for (let index = 5; index < data.length; index++) {
 
         // Captura os valores da forma que vem do arquivo
         //valorBruto = data[index][2]
@@ -85,15 +82,34 @@ async function processaArquivo(path: String) {
 
     }
 
-    return arrVendas
+    let valorTotalBruto = arrVendas.reduce(function(acumulador, valorAtual) {
+        return Number(acumulador) + Number(valorAtual.venda_bruta)
+    }, 0)
+
+    let valorTotalDespesas = arrVendas.reduce(function(acumulador, valorAtual) {
+        return Number(acumulador) + Number(valorAtual.despesas)
+    }, 0)
+
+    let valorTotalLiquido = arrVendas.reduce(function(acumulador, valorAtual) {
+        return Number(acumulador) + Number(valorAtual.venda_liquida)
+    }, 0)
+
+    valorTotalBruto = valorTotalBruto.toFixed(2);
+    valorTotalDespesas = valorTotalDespesas.toFixed(2)
+    valorTotalLiquido = valorTotalLiquido.toFixed(2)
+
+
+
+
+    return { arrVendas, valorTotalBruto, valorTotalDespesas, valorTotalLiquido }
 
 
 }
 
 export default {
 
-    async create(req: Request, res: Response) {
-        const requestFiles = req.files as Express.Multer.File[]
+    async create(req, res) {
+        const requestFiles = req.files
 
         // Faz a varredura em todos os arquivos que foram enviados
         const files = requestFiles.map(file => {
