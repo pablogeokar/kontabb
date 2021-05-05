@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="assets/images/icone-24.png" />
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css" />
+    <title>Kontabb | Intranet</title>
+  </head>
+  <body>
+    <div class="container">
+      <h3>Relatório de Contribuições do INSS</h3>
+      <br />
+
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">Competência</th>
+            <th scope="col">Total Remuneração (R$)</th>
+            <th scope="col">Valor Teto (R$)</th>
+            <th scope="col">Valor Remuneração acima do Teto (R$)</th>
+            <th scope="col">Alíquota Considerada (%)</th>
+            <th scope="col">Valor a restituir (R$)</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each contribuicoesAcimadoTeto}}
+          <tr>
+            <th scope="row">{{competencia}}</th>
+            <td>{{total}}</td>
+            <td>{{teto_inss}}</td>
+            <td>{{remuneracao_acima_teto}}</td>
+            <td>{{aliq}}%</td>
+            <td>{{valor_a_restituir}}</td>
+          </tr>
+          {{#each detalhes as |detalhe|}}
+          <tr>
+            <td colspan="6">
+              <h6>{{detalhe.cnpj}} - {{detalhe.razao_social}}</h6>
+              <h6>
+                <strong>Remuneração</strong> R$ {{detalhe.remuneracao}}
+                <strong>Alíquota</strong> {{detalhe.aliq}}%
+                <strong>Valor Contribuição:</strong> R$
+                {{detalhe.valor_contribuicao}}
+              </h6>
+            </td>
+          </tr>
+          {{/each}} {{/each}}
+        </tbody>
+      </table>
+      <strong>Saldo total a restituir </strong>
+      <span>R$ {{saldo_a_restituir}}</span>
+      <br />
+      <strong>Total de períodos apurados:</strong>
+      <span> {{contribuicoesAcimadoTeto.length}}</span>
+    </div>
+  </body>
+</html>

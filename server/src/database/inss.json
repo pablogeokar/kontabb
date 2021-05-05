@@ -1,0 +1,670 @@
+[
+  {
+    "competencia": "01/2021",
+    "valor_teto_maximo": 6433.57,
+    "calculo_progresivo": true,
+    "faixas": [
+      {
+        "ate_valor": 1100,
+        "aliq": 7.5
+      },
+      {
+        "ate_valor": 2203.48,
+        "aliq": 9
+      },
+      {
+        "ate_valor": 3305.22,
+        "aliq": 12
+      },
+      {
+        "ate_valor": 6433.57,
+        "aliq": 14
+      }
+    ]
+  },
+  {
+    "competencia": "03/2020",
+    "valor_teto_maximo": 6101.06,
+    "calculo_progresivo": true,
+    "faixas": [
+      {
+        "ate_valor": 1045,
+        "aliq": 7.5
+      },
+      {
+        "ate_valor": 2089.60,
+        "aliq": 9
+      },
+      {
+        "ate_valor": 3134.40,
+        "aliq": 12
+      },
+      {
+        "ate_valor": 6101.06,
+        "aliq": 14
+      }
+    ]
+  },
+  {
+    "competencia": "01/2020",
+    "valor_teto_maximo": 6101.06,
+    "calculo_progresivo": false,
+    "faixas": [
+      {
+        "ate_valor": 1830.29,
+        "aliq": 8
+      },
+      {
+        "ate_valor": 3050.52,
+        "aliq": 9
+      },
+      {
+        "ate_valor": 6101.06,
+        "aliq": 11
+      }
+    ]
+  },
+  {
+    "competencia": "01/2019",
+    "valor_teto_maximo": 5839.45,
+    "calculo_progresivo": false,
+    "faixas": [
+      {
+        "ate_valor": 1751.81,
+        "aliq": 8
+      },
+      {
+        "ate_valor": 2919.72,
+        "aliq": 9
+      },
+      {
+        "ate_valor": 5839.45,
+        "aliq": 11
+      }
+    ]
+  },
+  {
+    "competencia": "01/2018",
+    "valor_teto_maximo": 5645.80,
+    "calculo_progresivo": false,
+    "faixas": [
+      {
+        "ate_valor": 1693.72,
+        "aliq": 8
+      },
+      {
+        "ate_valor": 2822.90,
+        "aliq": 9
+      },
+      {
+        "ate_valor": 5645.80,
+        "aliq": 11
+      }
+    ]
+  },
+  {
+    "competencia": "01/2017",
+    "valor_teto_maximo": 5531.31,
+    "calculo_progresivo": false,
+    "faixas": [
+      {
+        "ate_valor": 1659.38,
+        "aliq": 8
+      },
+      {
+        "ate_valor": 2765.66,
+        "aliq": 9
+      },
+      {
+        "ate_valor": 5531.31,
+        "aliq": 11
+      }
+    ]
+  },
+  {
+    "competencia": "01/2016",
+    "valor_teto_maximo": 5189.82,
+    "calculo_progresivo": false,
+    "faixas": [
+      {
+        "ate_valor": 1556.94,
+        "aliq": 8
+      },
+      {
+        "ate_valor": 2594.92,
+        "aliq": 9
+      },
+      {
+        "ate_valor": 5189.82,
+        "aliq": 11
+      }
+    ]
+  },
+  {
+    "competencia": "01/2015",
+    "valor_teto_maximo": 4663.75,
+    "calculo_progresivo": false,
+    "faixas": [
+      {
+        "ate_valor": 1399.12,
+        "aliq": 8
+      },
+      {
+        "ate_valor": 2331.88,
+        "aliq": 9
+      },
+      {
+        "ate_valor": 4663.75,
+        "aliq": 11
+      }
+    ]
+  },
+  {
+    "competencia": "01/2014",
+    "valor_teto_maximo": 4390.24,
+    "calculo_progresivo": false,
+    "faixas": [
+      {
+        "ate_valor": 1317.07,
+        "aliq": 8
+      },
+      {
+        "ate_valor": 2195.12,
+        "aliq": 9
+      },
+      {
+        "ate_valor": 4390.24,
+        "aliq": 11
+      }
+    ]
+  },
+  {
+    "competencia": "01/2013",
+    "valor_teto_maximo": 4159,
+    "calculo_progresivo": false,
+    "faixas": [
+      {
+        "ate_valor": 1247.70,
+        "aliq": 8
+      },
+      {
+        "ate_valor": 2079.50,
+        "aliq": 9
+      },
+      {
+        "ate_valor": 4159,
+        "aliq": 11
+      }
+    ]
+  },
+  {
+    "competencia": "01/2012",
+    "valor_teto_maximo": 3916.20,
+    "calculo_progresivo": false,
+    "faixas": [
+      {
+        "ate_valor": 1174.86,
+        "aliq": 8
+      },
+      {
+        "ate_valor": 1958.10,
+        "aliq": 9
+      },
+      {
+        "ate_valor": 3916.20,
+        "aliq": 11
+      }
+    ]
+  },
+  {
+    "competencia": "07/2011",
+    "valor_teto_maximo": 3691.74,
+    "calculo_progresivo": false,
+    "faixas": [
+      {
+        "ate_valor": 1107.52,
+        "aliq": 8
+      },
+      {
+        "ate_valor": 1845.87,
+        "aliq": 9
+      },
+      {
+        "ate_valor": 3691.74,
+        "aliq": 11
+      }
+    ]
+  },
+  {
+    "competencia": "01/2011",
+    "valor_teto_maximo": 3689.66,
+    "calculo_progresivo": false,
+    "faixas": [
+      {
+        "ate_valor": 1106.90,
+        "aliq": 8
+      },
+      {
+        "ate_valor": 1844.83,
+        "aliq": 9
+      },
+      {
+        "ate_valor": 3689.66,
+        "aliq": 11
+      }
+    ]
+  },
+  {
+    "competencia": "06/2010",
+    "valor_teto_maximo": 3467.40,
+    "calculo_progresivo": false,
+    "faixas": [
+      {
+        "ate_valor": 1040.22,
+        "aliq": 8
+      },
+      {
+        "ate_valor": 1733.70,
+        "aliq": 9
+      },
+      {
+        "ate_valor": 3467.40,
+        "aliq": 11
+      }
+    ]
+  },
+  {
+    "competencia": "01/2010",
+    "valor_teto_maximo": 3416.24,
+    "calculo_progresivo": false,
+    "faixas": [
+      {
+        "ate_valor": 1024.97,
+        "aliq": 8
+      },
+      {
+        "ate_valor": 1708.27,
+        "aliq": 9
+      },
+      {
+        "ate_valor": 3416.24,
+        "aliq": 11
+      }
+    ]
+  },
+  {
+    "competencia": "02/2009",
+    "valor_teto_maximo": 3218.90,
+    "calculo_progresivo": false,
+    "faixas": [
+      {
+        "ate_valor": 965.67,
+        "aliq": 8
+      },
+      {
+        "ate_valor": 1609.45,
+        "aliq": 9
+      },
+      {
+        "ate_valor": 3218.90,
+        "aliq": 11
+      }
+    ]
+  },
+  {
+    "competencia": "03/2008",
+    "valor_teto_maximo": 3038.99,
+    "calculo_progresivo": false,
+    "faixas": [
+      {
+        "ate_valor": 911.70,
+        "aliq": 8
+      },
+      {
+        "ate_valor": 1519.50,
+        "aliq": 9
+      },
+      {
+        "ate_valor": 3038.99,
+        "aliq": 11
+      }
+    ]
+  },
+  {
+    "competencia": "01/2008",
+    "valor_teto_maximo": 2894.28,
+    "calculo_progresivo": false,
+    "faixas": [
+      {
+        "ate_valor": 868.29,
+        "aliq": 8
+      },
+      {
+        "ate_valor": 1447.14,
+        "aliq": 9
+      },
+      {
+        "ate_valor": 2894.28,
+        "aliq": 11
+      }
+    ]
+  },
+  {
+    "competencia": "04/2007",
+    "valor_teto_maximo": 2894.28,
+    "calculo_progresivo": false,
+    "faixas": [
+      {
+        "ate_valor": 868.29,
+        "aliq": 7.65
+      },
+      {
+        "ate_valor": 1140,
+        "aliq": 8.65
+      },
+      {
+        "ate_valor": 1447.14,
+        "aliq": 9
+      },
+      {
+        "ate_valor": 2894.28,
+        "aliq": 11
+      }
+    ]
+  },
+  {
+    "competencia": "08/2006",
+    "valor_teto_maximo": 2801.56,
+    "calculo_progresivo": false,
+    "faixas": [
+      {
+        "ate_valor": 840.55,
+        "aliq": 7.65
+      },
+      {
+        "ate_valor": 1050,
+        "aliq": 8.65
+      },
+      {
+        "ate_valor": 1400.91,
+        "aliq": 9
+      },
+      {
+        "ate_valor": 2801.82,
+        "aliq": 11
+      }
+    ]
+  },
+  {
+    "competencia": "04/2006",
+    "valor_teto_maximo": 2801.56,
+    "calculo_progresivo": false,
+    "faixas": [
+      {
+        "ate_valor": 840.47,
+        "aliq": 7.65
+      },
+      {
+        "ate_valor": 1050,
+        "aliq": 8.65
+      },
+      {
+        "ate_valor": 1400.77,
+        "aliq": 9
+      },
+      {
+        "ate_valor": 2801.56,
+        "aliq": 11
+      }
+    ]
+  },
+  {
+    "competencia": "05/2005",
+    "valor_teto_maximo": 2668.15,
+    "calculo_progresivo": false,
+    "faixas": [
+      {
+        "ate_valor": 800.45,
+        "aliq": 7.65
+      },
+      {
+        "ate_valor": 900,
+        "aliq": 8.65
+      },
+      {
+        "ate_valor": 1334.07,
+        "aliq": 9
+      },
+      {
+        "ate_valor": 2668.15,
+        "aliq": 11
+      }
+    ]
+  },
+  {
+    "competencia": "05/2004",
+    "valor_teto_maximo": 2508.72,
+    "calculo_progresivo": false,
+    "faixas": [
+      {
+        "ate_valor": 752.62,
+        "aliq": 7.65
+      },
+      {
+        "ate_valor": 780,
+        "aliq": 8.65
+      },
+      {
+        "ate_valor": 1524.36,
+        "aliq": 9
+      },
+      {
+        "ate_valor": 2508.72,
+        "aliq": 11
+      }
+    ]
+  },
+  {
+    "competencia": "01/2004",
+    "valor_teto_maximo": 2400,
+    "calculo_progresivo": false,
+    "faixas": [
+      {
+        "ate_valor": 720,
+        "aliq": 7.65
+      },
+      {
+        "ate_valor": 1200,
+        "aliq": 9
+      },
+      {
+        "ate_valor": 2400,
+        "aliq": 11
+      }
+    ]
+  },
+  {
+    "competencia": "06/2003",
+    "valor_teto_maximo": 1869.34,
+    "calculo_progresivo": false,
+    "faixas": [
+      {
+        "ate_valor": 560.81,
+        "aliq": 7.65
+      },
+      {
+        "ate_valor": 720,
+        "aliq": 8.65
+      },
+      {
+        "ate_valor": 934.67,
+        "aliq": 9
+      },
+      {
+        "ate_valor": 1869.34,
+        "aliq": 11
+      }
+    ]
+  },
+  {
+    "competencia": "04/2003",
+    "valor_teto_maximo": 1561.56,
+    "calculo_progresivo": false,
+    "faixas": [
+      {
+        "ate_valor": 468.47,
+        "aliq": 7.65
+      },
+      {
+        "ate_valor": 720,
+        "aliq": 8.65
+      },
+      {
+        "ate_valor": 780.78,
+        "aliq": 9
+      },
+      {
+        "ate_valor": 1561.56,
+        "aliq": 11
+      }
+    ]
+  },
+  {
+    "competencia": "06/2002",
+    "valor_teto_maximo": 1561.56,
+    "calculo_progresivo": false,
+    "faixas": [
+      {
+        "ate_valor": 468.47,
+        "aliq": 7.65
+      },
+      {
+        "ate_valor": 600,
+        "aliq": 8.65
+      },
+      {
+        "ate_valor": 780.78,
+        "aliq": 9
+      },
+      {
+        "ate_valor": 1561.56,
+        "aliq": 11
+      }
+    ]
+  },
+  {
+    "competencia": "04/2002",
+    "valor_teto_maximo": 1430,
+    "calculo_progresivo": false,
+    "faixas": [
+      {
+        "ate_valor": 429,
+        "aliq": 7.65
+      },
+      {
+        "ate_valor": 600,
+        "aliq": 8.65
+      },
+      {
+        "ate_valor": 715,
+        "aliq": 9
+      },
+      {
+        "ate_valor": 1430,
+        "aliq": 11
+      }
+    ]
+  },
+  {
+    "competencia": "06/2001",
+    "valor_teto_maximo": 1430,
+    "calculo_progresivo": false,
+    "faixas": [
+      {
+        "ate_valor": 429,
+        "aliq": 7.65
+      },
+      {
+        "ate_valor": 540,
+        "aliq": 8.65
+      },
+      {
+        "ate_valor": 715,
+        "aliq": 9
+      },
+      {
+        "ate_valor": 1430,
+        "aliq": 11
+      }
+    ]
+  },
+  {
+    "competencia": "04/2001",
+    "valor_teto_maximo": 1328.25,
+    "calculo_progresivo": false,
+    "faixas": [
+      {
+        "ate_valor": 398.48,
+        "aliq": 7.65
+      },
+      {
+        "ate_valor": 540,
+        "aliq": 8.65
+      },
+      {
+        "ate_valor": 664.13,
+        "aliq": 9
+      },
+      {
+        "ate_valor": 1328.25,
+        "aliq": 11
+      }
+    ]
+  },
+  {
+    "competencia": "03/2001",
+    "valor_teto_maximo": 1328.25,
+    "calculo_progresivo": false,
+    "faixas": [
+      {
+        "ate_valor": 398.48,
+        "aliq": 7.65
+      },
+      {
+        "ate_valor": 453,
+        "aliq": 8.65
+      },
+      {
+        "ate_valor": 664.13,
+        "aliq": 9
+      },
+      {
+        "ate_valor": 1328.25,
+        "aliq": 11
+      }
+    ]
+  },
+  {
+    "competencia": "01/2001",
+    "valor_teto_maximo": 1328.25,
+    "calculo_progresivo": false,
+    "faixas": [
+      {
+        "ate_valor": 398.48,
+        "aliq": 7.72
+      },
+      {
+        "ate_valor": 453,
+        "aliq": 8.73
+      },
+      {
+        "ate_valor": 664.13,
+        "aliq": 9
+      },
+      {
+        "ate_valor": 1328.25,
+        "aliq": 11
+      }
+    ]
+  }
+]

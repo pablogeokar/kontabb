@@ -941,6 +941,11 @@ path-type@^1.0.0:
     pify "^2.0.0"
     pinkie-promise "^2.0.0"
 
+pdf.js-extract@^0.1.5:
+  version "0.1.5"
+  resolved "https://registry.yarnpkg.com/pdf.js-extract/-/pdf.js-extract-0.1.5.tgz#0e8652c1aefcef08e91a9f1b3c691ea43d219bf7"
+  integrity sha512-ZnudGaH5Q41FMeGKgOOCMO6Ybluxc87lB0shYYx0FliKHQLSs7YrXx6ZOu7oC+ZePyMQnTOtBK65dW0aawmB/Q==
+
 picomatch@^2.0.4, picomatch@^2.2.1:
   version "2.2.2"
   resolved "https://registry.yarnpkg.com/picomatch/-/picomatch-2.2.2.tgz#21f333e9b6b8eaff02468f5146ea406d345f4dad"
