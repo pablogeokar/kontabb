@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contribuições INSS | Relatório Sintético</title>
+    <link rel="stylesheet" href="../public/styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div>
+        <h1>Demonstrativo Sintético de Contribuições acima do teto do INSS</h1>
+      </div>
+      <div class="table">
+        <div class="flex-1 flex-center">Competência</div>
+        <div class="flex-1 flex-center">Remuneração base de cálculo</div>
+        <div class="flex-1 flex-center">Teto máximo INSS</div>
+        <div class="flex-1 flex-center">Remuneração acima do teto</div>
+        <div class="flex-1 flex-center">Valor a Restituir</div>
+      </div>
+      <div class="table__row">
+        {{#each contribuicoesAcimadoTeto}}
+        <div>
+          <div class="flex-1 flex-1__title">{{competencia}}</div>
+          <div class="flex-1">{{total_str}}</div>
+          <div class="flex-1">{{teto_inss_str}}</div>
+          <div class="flex-1">{{remuneracao_acima_teto_str}}</div>
+          <div class="flex-1">{{valor_a_restituir_str}}</div>
+        </div>
+        {{/each}}     
+          <br />
+          <strong>Saldo total a restituir </strong>
+          <span>{{saldo_a_restituir}}</span>
+          <br />
+          <strong>Total de períodos apurados</strong>
+          <span> {{contribuicoesAcimadoTeto.length}}</span>
+        
+      </div>      
+    </div>    
+    </div>    
+  </body>
+</html>

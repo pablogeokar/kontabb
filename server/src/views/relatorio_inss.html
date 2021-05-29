@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -9,40 +9,38 @@
   </head>
   <body>
     <div class="container">
-      <h3>Relatório de Contribuições do INSS</h3>
+      <h5>Relatório de Contribuições do INSS</h5>
       <br />
 
-      <table class="table table-hover">
+      <table class="table table-hover table-sm">
         <thead>
           <tr>
             <th scope="col">Competência</th>
-            <th scope="col">Total Remuneração (R$)</th>
-            <th scope="col">Valor Teto (R$)</th>
-            <th scope="col">Valor Remuneração acima do Teto (R$)</th>
-            <th scope="col">Alíquota Considerada (%)</th>
-            <th scope="col">Valor a restituir (R$)</th>
+            <th scope="col">Remuneração</th>
+            <th scope="col">Valor Teto</th>
+            <th scope="col">Remuneração acima do Teto</th>
+            <th scope="col">A restituir</th>
           </tr>
         </thead>
         <tbody>
           {{#each contribuicoesAcimadoTeto}}
-          <tr>
+          <tr style="background-color: rgba(78, 78, 75, 0.377)">
             <th scope="row">{{competencia}}</th>
             <td>{{total}}</td>
             <td>{{teto_inss}}</td>
             <td>{{remuneracao_acima_teto}}</td>
-            <td>{{aliq}}%</td>
             <td>{{valor_a_restituir}}</td>
           </tr>
           {{#each detalhes as |detalhe|}}
           <tr>
             <td colspan="6">
               <h6>{{detalhe.cnpj}} - {{detalhe.razao_social}}</h6>
-              <h6>
-                <strong>Remuneração</strong> R$ {{detalhe.remuneracao}}
-                <strong>Alíquota</strong> {{detalhe.aliq}}%
-                <strong>Valor Contribuição:</strong> R$
+              Tipo Filiado no vínculo: {{detalhe.tipo_filiado}} |
+              <span>
+                Remuneração R$ {{detalhe.remuneracao}} | Alíquota
+                {{detalhe.aliq}}% | Valor Contribuição: R$
                 {{detalhe.valor_contribuicao}}
-              </h6>
+              </span>
             </td>
           </tr>
           {{/each}} {{/each}}

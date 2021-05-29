@@ -8,6 +8,17 @@ const rgxValor = /^\d+(?:\,\d{1,2})$/
 const rgxCNPJ = /(^\d{2}\.\d{3}\.\d{3}$)|(^\d{2}\.\d{3}\.\d{3}\/\d{4}\-\d{2}$)/ // cnpj básico + cnpj completo
 const rgxTipoFiliado = /Empregado|Contribuinte Individual/
 
+// Create our number formatter.
+const formatter = new Intl.NumberFormat("pt-BR", {
+  style: "currency",
+  currency: "BRL",
+  useGrouping: true
+
+  // These options are needed to round to whole numbers if that's what you want.
+  //minimumFractionDigits: 0, // (this suffices for whole numbers, but will print 2500.10 as $2,500.1)
+  //maximumFractionDigits: 0, // (causes 2500.99 to be printed as $2,501)
+});
+
 // Funções a serem utilziadas no array reduce
 const soma = (accumulator, currentValue) => accumulator + currentValue.remuneracao;
 const somaCausa = (accumulator, currentValue) => accumulator + Number(currentValue.valor_a_restituir);
@@ -133,21 +144,30 @@ module.exports = {
           detalhes.map(i => aliquotas.push(Number(i.aliq)))
           maiorAliquota = Math.max(...aliquotas)
 
-          if (total > tetoInss.valor_teto) contribuicoesAcimadoTeto.push({
-            competencia: item.competencia,
-            detalhes,
-            total: total.toFixed(2),
-            teto_inss: tetoInss.valor_teto,
-            remuneracao_acima_teto: (total - tetoInss.valor_teto).toFixed(2),
-            aliq: maiorAliquota,
-            valor_a_restituir: (((total - tetoInss.valor_teto) * maiorAliquota) / 100).toFixed(2)
-          })
+          if (total > tetoInss.valor_teto)
+            contribuicoesAcimadoTeto.push({
+              competencia: item.competencia,
+              detalhes,
+              total: total.toFixed(2),
+              total_str: formatter.format(total),
+              teto_inss: tetoInss.valor_teto,
+              teto_inss_str: formatter.format(tetoInss.valor_teto),
+              remuneracao_acima_teto: (total - tetoInss.valor_teto).toFixed(2),
+              remuneracao_acima_teto_str: formatter.format(total - tetoInss.valor_teto),
+              aliq: maiorAliquota,
+              valor_a_restituir: (((total - tetoInss.valor_teto) * maiorAliquota) / 100).toFixed(2),
+              valor_a_restituir_str: formatter.format(((total - tetoInss.valor_teto) * maiorAliquota) / 100)
+            })
         }
       })
 
       const saldo_a_restituir = contribuicoesAcimadoTeto.reduce(somaCausa, 0)
 
-      return res.render('relatorio_inss', { layout: false, contribuicoesAcimadoTeto: contribuicoesAcimadoTeto, saldo_a_restituir: saldo_a_restituir.toFixed(2) })
+      if (req.query.sintetico === 'sim') {
+        return res.render('relatorio_inss_sintetico', { layout: false, contribuicoesAcimadoTeto: contribuicoesAcimadoTeto, saldo_a_restituir: formatter.format(saldo_a_restituir) })
+      }
+
+      return res.render('relatorio_inss', { layout: false, contribuicoesAcimadoTeto: contribuicoesAcimadoTeto, saldo_a_restituir: formatter.format(saldo_a_restituir) })
     })
 
 

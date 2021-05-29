@@ -19,7 +19,10 @@ routes.get('/', function (req, res) {
 });
 
 routes.get('/inss', function (req, res) {
-    res.render('inss');
+    if (req.query.sintetico === 'sim') {
+        return res.render('inss', { sintetico: 'sim' });
+    }
+    return res.render('inss');
 });
 
 routes.post('/upload', uploadXLS.array('extratos'), CieloController.create)
